@@ -12,11 +12,7 @@ LED_BAR_PINS = [5,6,13,19,26,12,16,20,21,22]
 BUZZER_PIN = 17
 
 # Setup pins
-#GPIO.setup(PIR_PIN, GPIO.IN)
 GPIO.setup(BUZZER_PIN, GPIO.OUT)
-# for pin in LED_BAR_PINS:
-#     GPIO.setup(pin, GPIO.OUT)
-#     GPIO.output(pin, GPIO.LOW)
 
 # Motion sensor
 pir = MotionSensor(PIR_PIN) 
@@ -41,10 +37,6 @@ def led_bar_on(duration=5):
     for led in leds:
         led.on()       # Turn on LED
         time.sleep(step_time)     # Delay for visual effect
-        led.off()      # Turn off LED
-    # for pin in LED_BAR_PINS:
-    #     GPIO.output(pin, GPIO.HIGH)
-    #     time.sleep(step_time)
 def led_bar_off():
     for led in leds:
         led.off()
