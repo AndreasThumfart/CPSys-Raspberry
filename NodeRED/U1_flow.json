@@ -1,0 +1,149 @@
+[
+    {
+        "id": "dda448fe503a2900",
+        "type": "tab",
+        "label": "U1 Text",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "15b7ac79993fd288",
+        "type": "inject",
+        "z": "dda448fe503a2900",
+        "name": "group number",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "5",
+        "payloadType": "num",
+        "x": 290,
+        "y": 260,
+        "wires": [
+            [
+                "f726197868105ede",
+                "c07ff6a7c4073c16"
+            ]
+        ]
+    },
+    {
+        "id": "c07ff6a7c4073c16",
+        "type": "function",
+        "z": "dda448fe503a2900",
+        "name": "generate random text",
+        "func": "let options = [\"Hallo Welt\", \"Guten Morgen\", \"Wie geht's?\", \"Node-RED ist cool!\", \"Zufälliger Text\"];\nlet randomIndex = Math.floor(Math.random() * options.length);\nmsg.payload = options[randomIndex] + \"\\n\"+ msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 260,
+        "wires": [
+            [
+                "7861d01932933398",
+                "0e0c634498592f8e"
+            ]
+        ]
+    },
+    {
+        "id": "7861d01932933398",
+        "type": "exec",
+        "z": "dda448fe503a2900",
+        "command": "echo",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 950,
+        "y": 260,
+        "wires": [
+            [
+                "bac81a36cd52c0f9"
+            ],
+            [
+                "6297600190fd7884"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "f726197868105ede",
+        "type": "debug",
+        "z": "dda448fe503a2900",
+        "name": "debug group number",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "0e0c634498592f8e",
+        "type": "debug",
+        "z": "dda448fe503a2900",
+        "name": "debug function result",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "6297600190fd7884",
+        "type": "debug",
+        "z": "dda448fe503a2900",
+        "name": "debug exec error",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1230,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "bac81a36cd52c0f9",
+        "type": "debug",
+        "z": "dda448fe503a2900",
+        "name": "debug stdout",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1210,
+        "y": 220,
+        "wires": []
+    }
+]

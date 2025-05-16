@@ -1,0 +1,69 @@
+[
+    {
+        "id": "a79652a94e6b5add",
+        "type": "tab",
+        "label": "U2 DHT11",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "facf92f075f3466d",
+        "type": "inject",
+        "z": "a79652a94e6b5add",
+        "name": "start",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 160,
+        "wires": [
+            [
+                "1730b0d26801d342"
+            ]
+        ]
+    },
+    {
+        "id": "1730b0d26801d342",
+        "type": "rpi-dht22",
+        "z": "a79652a94e6b5add",
+        "name": "DHT22",
+        "topic": "DHT2201",
+        "dht": 22,
+        "pintype": "4",
+        "pin": "23",
+        "x": 360,
+        "y": 160,
+        "wires": [
+            [
+                "17a3c5ff1889f110"
+            ]
+        ]
+    },
+    {
+        "id": "17a3c5ff1889f110",
+        "type": "debug",
+        "z": "a79652a94e6b5add",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 160,
+        "wires": []
+    }
+]

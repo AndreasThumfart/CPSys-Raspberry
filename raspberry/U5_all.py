@@ -23,7 +23,7 @@ leds = [LED(pin) for pin in LED_BAR_PINS]
 # RFID reader
 reader = SimpleMFRC522()
 
-# Define correct RFID UID (replace with your actual UID)
+# Correct RFID UID
 CORRECT_UID = 856610833225
 
 def play_tone(frequency, duration):
