@@ -1,0 +1,143 @@
+[
+    {
+        "id": "8fc7f678a2d4c9ff",
+        "type": "tab",
+        "label": "U3 DHT11",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "7f057f33a58ce93d",
+        "type": "inject",
+        "z": "8fc7f678a2d4c9ff",
+        "name": "start",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 160,
+        "wires": [
+            [
+                "e92126b0c1482af4"
+            ]
+        ]
+    },
+    {
+        "id": "e92126b0c1482af4",
+        "type": "exec",
+        "z": "8fc7f678a2d4c9ff",
+        "command": "/usr/bin/python3 ~/Documents/nodered/ue2/ue2.py",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "dht11 python",
+        "x": 410,
+        "y": 160,
+        "wires": [
+            [
+                "227e480bba498a9e",
+                "5e634b5e07450139"
+            ],
+            [
+                "7d986663a70bb3d8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "7d986663a70bb3d8",
+        "type": "debug",
+        "z": "8fc7f678a2d4c9ff",
+        "name": "debug err",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "227e480bba498a9e",
+        "type": "mqtt out",
+        "z": "8fc7f678a2d4c9ff",
+        "name": "mqtt raspberry",
+        "topic": "dht11",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "edd64ab7ac06f5ad",
+        "x": 720,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "5e634b5e07450139",
+        "type": "debug",
+        "z": "8fc7f678a2d4c9ff",
+        "name": "debug succ",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "edd64ab7ac06f5ad",
+        "type": "mqtt-broker",
+        "name": "Raspberry",
+        "broker": "localhost",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]

@@ -1,0 +1,79 @@
+[
+    {
+        "id": "ce9721087d4cdfb2",
+        "type": "tab",
+        "label": "U3_dht11_client",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "467c1b95ccb4a1c2",
+        "type": "mqtt in",
+        "z": "ce9721087d4cdfb2",
+        "name": "mqtt raspberry",
+        "topic": "dht11",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "4d94e5ec499a4ca4",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 230,
+        "y": 180,
+        "wires": [
+            [
+                "19585b088487304d"
+            ]
+        ]
+    },
+    {
+        "id": "19585b088487304d",
+        "type": "debug",
+        "z": "ce9721087d4cdfb2",
+        "name": "debug test",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 470,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "4d94e5ec499a4ca4",
+        "type": "mqtt-broker",
+        "name": "raspberry",
+        "broker": "192.168.1.182",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]

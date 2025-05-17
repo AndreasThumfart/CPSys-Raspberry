@@ -28,24 +28,7 @@
         "y": 160,
         "wires": [
             [
-                "1730b0d26801d342"
-            ]
-        ]
-    },
-    {
-        "id": "1730b0d26801d342",
-        "type": "rpi-dht22",
-        "z": "a79652a94e6b5add",
-        "name": "DHT22",
-        "topic": "DHT2201",
-        "dht": 22,
-        "pintype": "4",
-        "pin": "23",
-        "x": 360,
-        "y": 160,
-        "wires": [
-            [
-                "17a3c5ff1889f110"
+                "c9bd27872c929359"
             ]
         ]
     },
@@ -53,7 +36,48 @@
         "id": "17a3c5ff1889f110",
         "type": "debug",
         "z": "a79652a94e6b5add",
-        "name": "debug 1",
+        "name": "debug succ",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "c9bd27872c929359",
+        "type": "exec",
+        "z": "a79652a94e6b5add",
+        "command": "/usr/bin/python3 ~/Documents/nodered/ue2/ue2.py",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "dht11 python",
+        "x": 410,
+        "y": 160,
+        "wires": [
+            [
+                "17a3c5ff1889f110"
+            ],
+            [
+                "8c339017ee52d17f"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "8c339017ee52d17f",
+        "type": "debug",
+        "z": "a79652a94e6b5add",
+        "name": "debug err",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -62,8 +86,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 580,
-        "y": 160,
+        "x": 660,
+        "y": 180,
         "wires": []
     }
 ]
