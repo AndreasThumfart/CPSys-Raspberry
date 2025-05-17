@@ -1,0 +1,132 @@
+[
+    {
+        "id": "1f70d61f5aad663d",
+        "type": "tab",
+        "label": "U4_Dashboard",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d9320cc0df91695b",
+        "type": "ui_switch",
+        "z": "1f70d61f5aad663d",
+        "name": "led switch",
+        "label": "LED on/off",
+        "tooltip": "",
+        "group": "5a676a3213c44de2",
+        "order": 0,
+        "width": "6",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 280,
+        "y": 140,
+        "wires": [
+            [
+                "5df9727cabed3778"
+            ]
+        ]
+    },
+    {
+        "id": "5df9727cabed3778",
+        "type": "function",
+        "z": "1f70d61f5aad663d",
+        "name": "convert to on/off",
+        "func": "msg.payload = msg.payload ? \"on\" : \"off\";\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 140,
+        "wires": [
+            [
+                "f255ba9a4842bd94"
+            ]
+        ]
+    },
+    {
+        "id": "f255ba9a4842bd94",
+        "type": "mqtt out",
+        "z": "1f70d61f5aad663d",
+        "name": "mqtt notebook led",
+        "topic": "led",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d11b5711dacc4ed4",
+        "x": 770,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "5a676a3213c44de2",
+        "type": "ui_group",
+        "name": "LED Steuerung",
+        "tab": "82221ca8a1d78306",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d11b5711dacc4ed4",
+        "type": "mqtt-broker",
+        "name": "notebook",
+        "broker": "127.0.0.1",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "82221ca8a1d78306",
+        "type": "ui_tab",
+        "name": "U4 - LED",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

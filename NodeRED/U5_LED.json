@@ -1,0 +1,138 @@
+[
+    {
+        "id": "114a0f38b76ab851",
+        "type": "tab",
+        "label": "U5_LED",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8625523a7702db02",
+        "type": "exec",
+        "z": "114a0f38b76ab851",
+        "command": "/usr/bin/python3 ~/Documents/nodered/ue5/ue5_led.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "python led",
+        "x": 430,
+        "y": 140,
+        "wires": [
+            [
+                "151a556040a468ad"
+            ],
+            [
+                "1fd0890c2341acbf"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "76a9a97ffb21c7d5",
+        "type": "mqtt in",
+        "z": "114a0f38b76ab851",
+        "name": "mqtt raspberry",
+        "topic": "led",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "edd64ab7ac06f5ad",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 140,
+        "wires": [
+            [
+                "8625523a7702db02",
+                "33ac9305fb401b37"
+            ]
+        ]
+    },
+    {
+        "id": "151a556040a468ad",
+        "type": "debug",
+        "z": "114a0f38b76ab851",
+        "name": "debug succ",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "1fd0890c2341acbf",
+        "type": "debug",
+        "z": "114a0f38b76ab851",
+        "name": "debug err",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "33ac9305fb401b37",
+        "type": "debug",
+        "z": "114a0f38b76ab851",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 360,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "edd64ab7ac06f5ad",
+        "type": "mqtt-broker",
+        "name": "Raspberry",
+        "broker": "localhost",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]

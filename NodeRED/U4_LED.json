@@ -1,0 +1,138 @@
+[
+    {
+        "id": "b9ccac96cde7486a",
+        "type": "tab",
+        "label": "U4 LED",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "89a849f95cad0b5b",
+        "type": "exec",
+        "z": "b9ccac96cde7486a",
+        "command": "/usr/bin/python3 ~/Documents/nodered/ue4/ue4.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "python led",
+        "x": 470,
+        "y": 120,
+        "wires": [
+            [
+                "d8b7a0ffc56e267a"
+            ],
+            [
+                "fd3a620f96cddba8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "8e6df272646c5914",
+        "type": "mqtt in",
+        "z": "b9ccac96cde7486a",
+        "name": "mqtt notebok",
+        "topic": "led",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "e52255dd96d23204",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 120,
+        "wires": [
+            [
+                "89a849f95cad0b5b",
+                "14e44ec7ca8dfcc0"
+            ]
+        ]
+    },
+    {
+        "id": "d8b7a0ffc56e267a",
+        "type": "debug",
+        "z": "b9ccac96cde7486a",
+        "name": "debug succ",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "fd3a620f96cddba8",
+        "type": "debug",
+        "z": "b9ccac96cde7486a",
+        "name": "debug err",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "14e44ec7ca8dfcc0",
+        "type": "debug",
+        "z": "b9ccac96cde7486a",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 400,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "e52255dd96d23204",
+        "type": "mqtt-broker",
+        "name": "notebook",
+        "broker": "192.168.1.132",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]
