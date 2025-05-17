@@ -1,7 +1,5 @@
 # U1: TEST PYTHON
-num1 = 5
-num2 = 7
+nr = 5
+text = "Wilkommen am Raspberry Pi, Gruppe"
 
-result = num1 + num2
-
-print("The sum is:", result)
+print(text, nr)
