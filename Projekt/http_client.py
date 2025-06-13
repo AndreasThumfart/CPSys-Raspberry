@@ -39,7 +39,7 @@ import sys
 #     return "V1L0", "V2R0"  # Fallback-Szene bei keiner Übereinstimmung
 
 def main():
-    HOST = '10.42.0.1'  # IP-Adresse des Servers
+    HOST = '127.0.0.1'  # IP-Adresse des Servers
     PORT = 8080         # Port des Servers
 
     # Passagierdaten eingeben (kann später automatisiert werden)
@@ -54,14 +54,15 @@ def main():
     #     "wagon2": scene2
     # }
     message = sys.argv[1]
-
-    json_message = json.dumps(message)
-    print(f"➤ Sende folgende Szenen an den Server: {json_message}",file=sys.stderr, flush=True)
+    print(f"received data: {message}",file=sys.stderr, flush=True)
+    json_message = json.loads(message)
+    #json_message = message
+    print(f"Sende folgende Szenen an den Server: {message}",file=sys.stderr, flush=True)
 
     # Verbindung aufbauen und JSON senden
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     client_socket.connect((HOST, PORT))
-    client_socket.sendall(json_message.encode('utf-8'))
+    client_socket.sendall(message.encode('utf-8'))
 
     # Antwort vom Server empfangen
     data = client_socket.recv(1024)
