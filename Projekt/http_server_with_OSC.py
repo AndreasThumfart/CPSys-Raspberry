@@ -11,7 +11,7 @@ MDCX_OSC_PORT = 7475
 HTTP_HOST = '127.0.0.1'
 HTTP_PORT = 8080
 
-Funktion zum Senden eines OSC-Kommandos
+# Funktion zum Senden eines OSC-Kommandos
 def oscsender(obj, topic, msg=None):
     try:
         if msg is None:
