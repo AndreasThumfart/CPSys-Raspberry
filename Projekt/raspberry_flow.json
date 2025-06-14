@@ -1,0 +1,226 @@
+[
+    {
+        "id": "4e371cffd4cb22fc",
+        "type": "tab",
+        "label": "Project",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "7da695f655b25ff8",
+        "type": "mqtt out",
+        "z": "4e371cffd4cb22fc",
+        "name": "mqtt images raspberry",
+        "topic": "images",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "edd64ab7ac06f5ad",
+        "x": 1140,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "2bd1f0c3f75a8550",
+        "type": "exec",
+        "z": "4e371cffd4cb22fc",
+        "command": "/usr/bin/python3 ~/Documents/sunfounder/project/dual_camera.py",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "capture images",
+        "x": 800,
+        "y": 200,
+        "wires": [
+            [
+                "7da695f655b25ff8",
+                "4d9166b924d14317"
+            ],
+            [
+                "ee0ca35521594379"
+            ],
+            [
+                "a7b93b7c03cb0d06"
+            ]
+        ]
+    },
+    {
+        "id": "48a41a476038d7fe",
+        "type": "inject",
+        "z": "4e371cffd4cb22fc",
+        "name": "trigger",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 220,
+        "wires": [
+            [
+                "b36e527cec905519"
+            ]
+        ]
+    },
+    {
+        "id": "b36e527cec905519",
+        "type": "exec",
+        "z": "4e371cffd4cb22fc",
+        "command": "/usr/bin/python3 ~/Documents/sunfounder/project/accelerometer.py",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "exec accelerometer",
+        "x": 410,
+        "y": 220,
+        "wires": [
+            [
+                "2bd1f0c3f75a8550"
+            ],
+            [
+                "3b9983ba5dde02e9"
+            ],
+            [
+                "c7fae2062adca42e"
+            ]
+        ]
+    },
+    {
+        "id": "ee0ca35521594379",
+        "type": "debug",
+        "z": "4e371cffd4cb22fc",
+        "name": "debug error image capture",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "3b9983ba5dde02e9",
+        "type": "debug",
+        "z": "4e371cffd4cb22fc",
+        "name": "debug error accelerometer",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "c7fae2062adca42e",
+        "type": "debug",
+        "z": "4e371cffd4cb22fc",
+        "name": "debug code accelerometer",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "a7b93b7c03cb0d06",
+        "type": "debug",
+        "z": "4e371cffd4cb22fc",
+        "name": "debug code image capture",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "4d9166b924d14317",
+        "type": "debug",
+        "z": "4e371cffd4cb22fc",
+        "name": "debug success",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "edd64ab7ac06f5ad",
+        "type": "mqtt-broker",
+        "name": "Raspberry",
+        "broker": "localhost",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]

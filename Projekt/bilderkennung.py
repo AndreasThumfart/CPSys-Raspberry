@@ -23,7 +23,7 @@ def count_persons(image_path, model):
 # Auswertung der Bilder
 def get_video_id(personCount):
     match personCount:
-        case num if 1 <= num <  6:
+        case num if num <  6:
             return 1
         case num if 6 <= num < 11:
             return 2

@@ -8,7 +8,7 @@ MDCX_HOST = "127.0.0.1"
 MDCX_OSC_PORT = 7475
 
 # HTTP TCP Configuration
-HTTP_HOST = '127.0.0.1'
+HTTP_HOST = "10.113.231.87"
 HTTP_PORT = 8080
 
 # Funktion zum Senden eines OSC-Kommandos
@@ -48,8 +48,8 @@ while True:
         jsonmessage = json.loads(message)
         print("Empfangene Szene-Daten:", message)
 
-        wagon1_scene = jsonmessage.get("videoId1", "V1L0") # default value
-        wagon2_scene = jsonmessage.get("videoId2", "V2R0") # default value
+        wagon1_scene = "L"+ jsonmessage.get("videoId1", "1") # default value
+        wagon2_scene = "R"+ jsonmessage.get("videoId2", "1") # default value
 
         # OSC-Themenpfade erzeugen
         topic1 = f"/mdc_{wagon1_scene.lower()}"

@@ -1,0 +1,26 @@
+[
+    {
+        "id": "510a627324eb0bb7",
+        "type": "exec",
+        "z": "6599010148f2f5bb",
+        "command": "python3 \"C:\\Projekte\\CPSys-Raspberry\\Projekt\\http_client.py\"",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "HTTP client Script",
+        "x": 2410,
+        "y": 120,
+        "wires": [
+            [
+                "e7a6b3284f0a88be"
+            ],
+            [
+                "221bda15f85eea11"
+            ],
+            []
+        ]
+    }
+]
