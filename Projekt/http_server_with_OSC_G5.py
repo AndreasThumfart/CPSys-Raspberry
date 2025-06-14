@@ -48,8 +48,8 @@ while True:
         jsonmessage = json.loads(message)
         print("Empfangene Szene-Daten:", message)
 
-        wagon1_scene = (jsonmessage.get("videoId1", 1)*2)-1 # default value
-        wagon2_scene = jsonmessage.get("videoId2", 1)*2 # default value
+        wagon1_scene = (jsonmessage.get("videoId1", 1)*2)-1 # default value 1
+        wagon2_scene = jsonmessage.get("videoId2", 1)*2 # default value 1
 
         # OSC-Themenpfade erzeugen
         topic1 = "/mdc_layer1_preset" + str(wagon1_scene)
